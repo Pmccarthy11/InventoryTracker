@@ -3,9 +3,15 @@ require("dotenv").config();
 const express = require("express");
 const pool = require("./models/db");
 const app = express();
+const { Pool } = require("pg");
 const path = require("path");
 const statsRoutes = require("./routes/stats"); // Import the new routes
 app.use("/stats", statsRoutes); // Use them under /stats
+
+const pool = new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false } // Required for Render DB
+  });
 
 
 app.use(express.static(path.join(__dirname, "public")));

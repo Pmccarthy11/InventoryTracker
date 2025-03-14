@@ -1,3 +1,9 @@
+const API_URL = "https://inventory-tracker-drab-two.vercel.app/"; // Replace with your Render backend URL
+
+fetch(`${API_URL}/items`)
+
+
+
 // Fetch All Items
 function fetchItems() {
   fetch("/items")
