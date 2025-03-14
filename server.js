@@ -8,7 +8,7 @@ const path = require("path");
 const statsRoutes = require("./routes/stats"); // Import the new routes
 app.use("/stats", statsRoutes); // Use them under /stats
 
-const pool = new Pool({
+const poole = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false } // Required for Render DB
   });
