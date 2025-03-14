@@ -1,0 +1,240 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --button-bg: #f0f0f0;
+    --button-text: #000000;
+    --plus-btn: #007bff;
+    --minus-btn: #dc3545;
+    --delete-btn: #6c757d;
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+    --bg-color: #1e1e1e;
+    --text-color: #ffffff;
+    --button-bg: #333;
+    --button-text: #ffffff;
+    --plus-btn: #2980b9;  /* Lighter blue */
+    --minus-btn: #c0392b; /* Lighter red */
+    --delete-btn: #555;
+}
+
+/* Base Styles */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Move Dark Mode Toggle to Top-Left */
+.dark-mode-toggle {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it stays above everything */
+}
+
+/* Header */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Centered Top Buttons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Form Container */
+#addItemContainer {
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 10px;
+    max-width: 500px;
+    background-color: var(--bg-color);
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+/* Input Fields */
+#addItemContainer input {
+    width: 90%;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+    
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+#search {
+    width: 50%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* Inventory List */
+.inventory-container {
+    max-width: 600px;
+    margin: 20px auto;
+    background: var(--bg-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Inventory Item */
+.inventory-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-color);
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Item Actions */
+.item-actions {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Buttons */
+button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Action Buttons */
+.plus-btn {
+    background-color: var(--plus-btn);
+    color: white;
+}
+
+.minus-btn {
+    background-color: var(--minus-btn);
+    color: white;
+}
+
+.delete-btn {
+    background-color: var(--delete-btn);
+    color: white;
+}
+
+/* Ensure buttons remain visible in dark mode */
+.dark-mode .plus-btn,
+.dark-mode .minus-btn,
+.dark-mode .delete-btn {
+    filter: brightness(1.2);
+}
+
+/* Dark Mode Inputs */
+.dark-mode input {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #555;
+}
+
+.dark-mode #search {
+    background-color: #333;
+    color: #ffffff;
+    border: 1px solid #555;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Add a border around the entire inventory list */
+.inventory-container {
+    padding: 15px;
+    border: 3px solid white; /* Dark border */
+    border-radius: 10px; /* Rounded corners */
+    background: white; /* Keeps background color */
+    max-width: 800px; /* Adjust width */
+    margin: 20px auto; /* Center it */
+}
+
+/* Dark Mode - Keep the border visible */
+.dark-mode .inventory-container {
+    background: #222; /* Dark background */
+    border: 3px solid #666; /* Slightly lighter border */
+}
+
+.dashboard-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .dark-mode .dashboard-container {
+    background: #1e1e1e;
+    color: white;
+  }
+  
+  .dashboard-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+  }
+  
+  .stat-box {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .dark-mode .stat-box {
+    background: #333;
+    color: white;
+  }
+  
+  #recentUpdates {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #recentUpdates li {
+    background: #f4f4f4;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+  }
+  
+  .dark-mode #recentUpdates li {
+    background: #333;
+    color: white;
+  }
+  
