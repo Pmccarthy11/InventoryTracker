@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 app.use(express.json()); // ⬅️ This enables JSON body parsing
 
 
-const PORT = process.env.PORT || 5001;
+
 
 // Get all categories
 app.get("/categories", async (req, res) => {
@@ -191,4 +191,6 @@ app.get("/stats/total-items", async (req, res) => {
 
 
 
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+  const PORT = process.env.PORT || 5001;
+  app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+  
