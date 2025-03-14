@@ -4,6 +4,9 @@ const express = require("express");
 const pool = require("./models/db");
 const app = express();
 const path = require("path");
+const statsRoutes = require("./routes/stats"); // Import the new routes
+app.use("/stats", statsRoutes); // Use them under /stats
+
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -42,7 +45,7 @@ app.get("/items/low-stock", async (req, res) => {
   try {
     console.log("🔍 Fetching low-stock items...");
     const result = await pool.query(
-      "SELECT * FROM items WHERE quantity < minimum_stock"
+      "SELECT * FROM items WHERE quantity < 1"
     );
     console.log("✅ Low-stock items retrieved:", result.rows);
     res.json(result.rows);

@@ -155,35 +155,28 @@ document.getElementById("toggleAddItem").addEventListener("click", function () {
 
   async function loadStats() {
     try {
-      // Fetch data from the new API endpoints
-      const totalRes = await fetch("/stats/total-items");
-      const lowStockRes = await fetch("/stats/low-stock");
-      const mostAddedRes = await fetch("/stats/most-added");
-      const recentUpdatesRes = await fetch("/stats/recent-updates");
+      const totalRes = await fetch("/stats/total-items");  // Fetch total items
+      const lowStockRes = await fetch("/stats/low-stock"); // Fetch low-stock count
   
       const totalData = await totalRes.json();
       const lowStockData = await lowStockRes.json();
-      const mostAddedData = await mostAddedRes.json();
-      const recentUpdatesData = await recentUpdatesRes.json();
   
       // Update the UI
       document.getElementById("totalItems").textContent = totalData.totalItems;
       document.getElementById("lowStockItems").textContent = lowStockData.lowStock;
-      document.getElementById("mostAddedItem").textContent = `${mostAddedData.description} (${mostAddedData.quantity})`;
-      
-      // Display recently updated items
-      const recentUpdatesList = document.getElementById("recentUpdates");
-      recentUpdatesList.innerHTML = ""; // Clear previous data
-      recentUpdatesData.forEach((item) => {
-        const li = document.createElement("li");
-        li.textContent = `${item.description} - Qty: ${item.quantity}`;
-        recentUpdatesList.appendChild(li);
-      });
   
     } catch (error) {
       console.error("Error loading stats:", error);
     }
   }
+  
+  // Ensure the stats load when the page loads
+  window.onload = () => {
+    loadStats();
+    fetchItems(); // Load inventory
+    loadChart();
+  };
+  
   
   // Load stats when the page loads
   window.onload = () => {
