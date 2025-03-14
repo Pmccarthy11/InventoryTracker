@@ -1,79 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Tracker</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" class="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
 
-  <body>
+    <!-- Header -->
     <h1>📦 Inventory Tracker</h1>
-    <button
-      id="dark-mode-toggle"
-      class="dark-mode-toggle"
-      onclick="toggleDarkMode()"
-    >
-      🌙 Toggle Dark Mode
-    </button>
 
+    <!-- Top Buttons -->
     <div class="button-container">
-      <button onclick="fetchItems()">🔄 Load Inventory</button>
-      <button id="toggleAddItem">➕ Add Item</button>
-
-      <button onclick="fetchLowStock()">⚠️ View Low Stock</button>
+        <button onclick="fetchItems()">🔄 Load Inventory</button>
+        <button id="toggleAddItem">➕ Add Item</button>
+        <button onclick="fetchLowStock()">⚠️ View Low Stock</button>
     </div>
 
-    <!-- Add New Item Form (Initially Hidden) -->
-    <div id="addItemContainer" style="display: none">
-      <h2>➕ Add New Item</h2>
-      <form id="addItemForm">
-        <input type="text" id="item_no" placeholder="Item No" required />
-        <input
-          type="text"
-          id="description"
-          placeholder="Description"
-          required
-        />
-        <input type="text" id="unit" placeholder="Unit" />
-        <input type="number" id="quantity" placeholder="Quantity" required />
-        <button type="submit">➕ Add Item</button>
-      </form>
-    </div>
-
-    <!-- Search Bar -->
-    <div class="search-container">
-      <input
-        type="text"
-        id="search"
-        placeholder="🔍 Search Inventory"
-        onkeyup="searchItems()"
-      />
-    </div>
-    <div id="dashboard" class="dashboard-container">
-      <h2>📊 Inventory Dashboard</h2>
-      <div class="dashboard-stats">
-        <div class="stat-box">
-          📦 Total Items: <span id="totalItems">0</span>
+    <div class="main-container">
+        <!-- Left Section: Inventory & Search -->
+        <div class="left-section">
+            <div class="search-container">
+                <input type="text" id="search" placeholder="🔍 Search Inventory" onkeyup="searchItems()">
+            </div>
+            <div class="inventory-container">
+                <ul id="inventory-list"></ul>
+            </div>
         </div>
-        <div class="stat-box">
-          ⚠️ Low Stock: <span id="lowStockItems">0</span>
-        </div>
-        <div class="stat-box">
-          🏆 Most Added: <span id="mostAddedItem">N/A</span>
-        </div>
-      </div>
 
-      <h3>🔄 Recently Updated Items</h3>
-      <ul id="recentUpdates"></ul>
+        <!-- Right Section: Add Item Form & Dashboard -->
+        <div class="right-section">
+            <div id="addItemContainer" class="form-container hidden">
+                <h2>➕ Add New Item</h2>
+                <form id="addItemForm">
+                    <input type="text" id="item_no" placeholder="Item No" required>
+                    <input type="text" id="description" placeholder="Description" required>
+                    <input type="text" id="unit" placeholder="Unit">
+                    <input type="number" id="quantity" placeholder="Quantity" required>
+                    <button type="submit">➕ Add Item</button>
+                </form>
+            </div>
 
-      <canvas id="inventoryChart" width="400" height="200"></canvas>
+            <div class="dashboard-container">
+                <h2>📊 Inventory Dashboard</h2>
+                <div class="dashboard-stats">
+                    <div class="stat-box">📦 Total Items: <span id="totalItems">0</span></div>
+                    <div class="stat-box">⚠️ Low Stock: <span id="lowStockItems">0</span></div>
+                    <div class="stat-box">🏆 Most Added: <span id="mostAddedItem">N/A</span></div>
+                </div>
+                <h3>🔄 Recently Updated Items</h3>
+                <ul id="recentUpdates"></ul>
+                <canvas id="inventoryChart" width="400" height="200"></canvas>
+            </div>
+        </div>
     </div>
-
-    <!-- Inventory List -->
-    <ul id="inventory-list" class="inventory-container"></ul>
 
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
