@@ -1,4 +1,4 @@
-const pool = require("../models/db");
+const pool = require("../api/models/db");
 
 // Get all low-stock items (where quantity < minimum_stock)
 exports.getLowStockItems = async (req, res) => {
