@@ -1,10 +1,10 @@
 // Express API for Inventory Management
 require("dotenv").config();
 const express = require("express");
-const pool = require("./models/db");
+const pool = require("../models/db");
 const app = express();
 const path = require("path");
-const statsRoutes = require("./routes/stats"); // Import the new routes
+const statsRoutes = require("../routes/stats"); // Import the new routes
 app.use("/stats", statsRoutes); // Use them under /stats
 
 
